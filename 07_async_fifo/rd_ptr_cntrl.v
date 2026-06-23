@@ -18,6 +18,15 @@ wire [PTR_W-1:0] rd_gray_next;
 assign rd_bin_next =
             rd_bin + (rd_en & ~empty);
 
+/*bin2gray #(
+    .PTR_W(PTR_W)
+)
+u_bin2gray_rd
+(
+    .bin (rd_bin_next),
+    .gray(rd_gray_next)
+);*/
+
 assign rd_gray_next =
             rd_bin_next ^ (rd_bin_next >> 1);
 
